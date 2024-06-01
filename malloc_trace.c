@@ -29,6 +29,6 @@ void my_free(const char* file, int line, void* ptr) {
 	if (!realfree)
 		realfree = dlsym(RTLD_NEXT, "free");
 	printf("free [%s](%d)  %p\n", file, line, ptr);
-	free(ptr);
+	realfree(ptr);
 }
 
